@@ -5,7 +5,8 @@
 #include "simulation.h"
 #include "time.h"
 #include <cstdlib>
-#include <sstream>
+#include "consoleinput.h"
+
 
 
 int main(int argc, char* argv[])
@@ -15,34 +16,17 @@ int main(int argc, char* argv[])
 	diseaseSim::Disease* disease;
 	diseaseSim::Population* population;
 
+	//Input Check
 
+	if(!diseaseSim::isValidInput(argc, argv))
+		return EXIT_FAILURE;
 	//Disease parameters
-	std::string name;
-	int infectionRate;
-	int deathRate;
+	std::string name = argv[1];
+	int infectionRate = atoi(argv[2]);
+	int deathRate = atoi(argv[3]);
 
 	//get paramaters from console(Include more options) input is ignored for debug
-	if (argc == 4)
-	{
-		try
-		{
-	
-			name = argv[1];
-			std::cout << name;
-			infectionRate = (long)argv[2];
-			deathRate =  (long)argv[3];
-		}
-		catch (std::exception e)
-		{
-			std::cerr << "Arguments do not match type:(string, int, int)";
 
-		}
-	}
-
-	else
-	{
-		std::cerr << "usage: " << argv[0] << "<diseaseName> <infectionRate> <deathChanceForInfected>\n";
-	}
 
 	//new disease
 	disease = new diseaseSim::Disease(name, infectionRate, deathRate,7);
