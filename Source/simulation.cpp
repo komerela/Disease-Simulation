@@ -17,7 +17,7 @@ void diseaseSim::Simulation::simulateDisease(bool consoleOutput)
 {
 	std::cout << disease;
 	std::cout << population;
-	//data += disease.getCdlData();  fix
+	data = disease.getCdlData(); 
 	unsigned int start, end;
 	start = clock();
 	while (daysPassed <= maxDays && population.getNumInfected() > 0)
@@ -30,12 +30,13 @@ void diseaseSim::Simulation::simulateDisease(bool consoleOutput)
 			std::cout << "day: " << daysPassed << '/' << maxDays << '\n';
 			std::cout << population;
 		}
-	//	data += population.getCdlData; fix
+	data += population.getCdlData(); 
 		daysPassed++;
 		
 	}
 	end = clock();
-	std::cout << "Execution time: " <<  (end - start) / (CLOCKS_PER_SEC)  << std::endl;
+	std::cout << "Execution time: " <<  (end - start) / (CLOCKS_PER_SEC)  << "Seconds" <<  std::endl;
+
 }
 
 std::string diseaseSim::Simulation::getCDLData()

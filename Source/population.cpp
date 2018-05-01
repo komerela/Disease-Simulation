@@ -11,7 +11,7 @@ diseaseSim::Population::Population()
 	startSize = 1000000;	//Size entered by user
 	numInfected = 0;		//Number of infected people in the population
 	numAlive = startSize;	//Number of elements to be inserted
-
+	numDead = 0;
 
 	//Create a random disease to interact with population.
 	int infectionRate = (rand() % 100) + 1;
@@ -41,6 +41,8 @@ diseaseSim::Population::Population(int size, int infected, int minInteractions, 
 	startSize = size;
 
 	numAlive = size;
+	numInfected = 0;
+	numDead = 0;
 	this->minInteractions = minInteractions;
 	this->maxInteractions = maxInteractions;
 	this->disease = &disease;
@@ -56,8 +58,9 @@ diseaseSim::Population::Population(int size, int infected, int minInteractions, 
 //Delete all Heap memory
 diseaseSim::Population::~Population()
 {
-	while (head != NULL)
-		remove(*head);
+
+	while (tail != NULL && size != 0)
+		remove(*tail);
 
 }
 
@@ -271,7 +274,7 @@ std::ostream & diseaseSim::operator<<(std::ostream& os,
 std::string diseaseSim::Population::getCdlData()
 {
 	std::string cdlString;
-	cdlString = numAlive + "," + numInfected + ',' + numDead + '\n';
+	cdlString = numAlive + ',' + numInfected + ',' + numDead + '\n';
 	return cdlString;
 }
 

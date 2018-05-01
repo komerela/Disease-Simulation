@@ -3,6 +3,7 @@
 #include "disease.h"
 #include "population.h"
 #include "simulation.h"
+#include "fileoutput.h"
 #include "time.h"
 #include <cstdlib>
 #include "consoleinput.h"
@@ -17,7 +18,6 @@ int main(int argc, char* argv[])
 	diseaseSim::Population* population;
 
 	//Input Check
-
 	if(!diseaseSim::isValidInput(argc, argv))
 		return EXIT_FAILURE;
 	//Disease parameters
@@ -40,6 +40,12 @@ int main(int argc, char* argv[])
 	//make simuation
 	diseaseSim::Simulation* simulation = new  diseaseSim::Simulation(*population, *disease, 365);
 	simulation->simulateDisease(true);
-	
+	//name += (clock()/1000000);
+	diseaseSim::writeToFile(name, simulation->getCDLData());
+	delete disease;
+	delete simulation;
+	//delete population;
+
 	return 0;
 }
+ 
