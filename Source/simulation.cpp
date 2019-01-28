@@ -1,6 +1,5 @@
-#include "simulation.h"
-#include <iostream>
-#include<time.h>
+#include "../Includes/simulation.h"
+
 
 /*Handles simulation objects 
 
@@ -15,11 +14,13 @@ diseaseSim::Simulation::Simulation(diseaseSim::Population& population, diseaseSi
 
 void diseaseSim::Simulation::simulateDisease(bool consoleOutput)
 {
-	std::cout << disease;
-	std::cout << population;
-	data = disease.getCdlData(); 
-	unsigned int start, end;
+	disease.printStats();
+	population.printStats();
+	data = disease.getCdlData();
+	unsigned int start;
+	unsigned int end;
 	start = clock();
+	end = 0;
 	while (daysPassed <= maxDays && population.getNumInfected() > 0)
 	{
 		population.interact();
@@ -28,9 +29,9 @@ void diseaseSim::Simulation::simulateDisease(bool consoleOutput)
 		if (consoleOutput)
 		{
 			std::cout << "day: " << daysPassed << '/' << maxDays << '\n';
-			std::cout << population;
+			population.printStats();
 		}
-	data += population.getCdlData(); 
+		data += population.getCdlData(); 
 		daysPassed++;
 		
 	}

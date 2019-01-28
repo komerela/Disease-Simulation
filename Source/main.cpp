@@ -1,13 +1,13 @@
+
+#include "../Includes/disease.h"
+#include "../Includes/population.h"
+#include "../Includes/simulation.h"
+#include "../Includes/fileoutput.h"
+#include "time.h"
+#include "../Includes/consoleinput.h"
 #include <string>
 #include <iostream>
-#include "disease.h"
-#include "population.h"
-#include "simulation.h"
-#include "fileoutput.h"
-#include "time.h"
 #include <cstdlib>
-#include "consoleinput.h"
-
 
 
 int main(int argc, char* argv[])

@@ -1,4 +1,4 @@
-#include "person.h"
+#include "../Includes/person.h"
 
 //Default person for disease simulation
 int diseaseSim::Person::numPeople = 0;

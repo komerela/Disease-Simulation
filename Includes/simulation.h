@@ -1,10 +1,12 @@
 #ifndef SIMULATION_H
 #define SIMULATION_H
-#include <string>
+
 #include "population.h"
 #include "disease.h"
+#include <iostream>
 namespace diseaseSim
 {
+
 	class Simulation
 	{
 		private:

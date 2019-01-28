@@ -1,7 +1,4 @@
-#include "consoleinput.h"
-#include <string>
-#include <iostream>
-#include <stdlib.h>
+#include "../Includes/consoleinput.h"
 
 bool diseaseSim::isValidInput(int argc, char * argv[])
 {

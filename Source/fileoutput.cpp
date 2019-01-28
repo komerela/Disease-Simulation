@@ -1,8 +1,5 @@
-#include "fileoutput.h"
-#include <fstream>
-#include<string>
-#include<iostream>
-#include<istream>
+#include "../Includes/fileoutput.h"
+
 void diseaseSim::writeToFile(std::string name, std::string data)
 {
 	data += '\0';	

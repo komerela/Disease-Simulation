@@ -2,9 +2,13 @@
 #define POPULATION_H
 #include "person.h"
 #include "disease.h"
+#include <string>
+#include <time.h>
+#include <iostream>
 
 namespace diseaseSim
 {
+
 	class Population
 	{
 		protected:
@@ -45,10 +49,13 @@ namespace diseaseSim
 		void remove(Person &person);
 		void insertFirst(Person person);
 		void interact();
-		friend std::ostream & operator<<(std::ostream& os,Population& population);
+		
 		Population(Population& population);
 		std::string getCdlData();
+		void printStats();
 
 	};
+
+
 }
 #endif

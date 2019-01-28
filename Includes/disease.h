@@ -1,9 +1,13 @@
 #ifndef DISEASE_H
 #define DISEASE_H
-#include <string>
 
+#include "diseaseSim.h"
+#include <string>
+#include <fstream>
+#include <iostream>
 namespace diseaseSim
 {
+
 	class Disease
 	{
 		int deathRate;
@@ -23,11 +27,10 @@ namespace diseaseSim
 		int getIncubationTime();
 		void setIncubationTime(int incubation);
 		std::string getCdlData();
-		//friend std::ostream& operator<<(std::ostream& os, diseaseSim::Disease& disease);
+		void printStats();
 		
 
 	};
-	std::ostream& operator<<(std::ostream& os, diseaseSim::Disease& disease);
 }
 
 #endif

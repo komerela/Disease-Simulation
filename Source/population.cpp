@@ -1,7 +1,5 @@
-#include "population.h"
-#include <time.h>
-#include <iostream>
-#include <cstdlib>
+#include "../Includes/population.h"
+
 //constructors
 diseaseSim::Population::Population()
 {
@@ -260,15 +258,12 @@ void diseaseSim::Population::setMinInteractions(int interactions)
 }
 
 //output and data methods
-std::ostream & diseaseSim::operator<<(std::ostream& os,
-	diseaseSim::Population& population)
+void diseaseSim::Population::printStats()
 {
 
-	os << "Number Alive: " << population.numAlive << '\n';
-	os << "Number Infected: " << population.numInfected << '\n';
-	os << "Number Dead: " << population.numDead << "\n\n";
-
-	return os;
+	std::cout << "Number Alive: " << numAlive << '\n';
+	std::cout << "Number Infected: " << numInfected << '\n';
+	std::cout << "Number Dead: " << numDead << "\n\n";
 }
 
 std::string diseaseSim::Population::getCdlData()

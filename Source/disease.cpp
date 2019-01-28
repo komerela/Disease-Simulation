@@ -1,6 +1,5 @@
-#include "disease.h"
-#include <string>
-#include <iostream>
+#include "../Includes/disease.h"
+
 
 //Constructor
 diseaseSim::Disease::Disease()
@@ -61,13 +60,13 @@ void diseaseSim::Disease::setName(std::string name)
 }
 
 //Output disease data to console
-std::ostream & diseaseSim::operator<<(std::ostream& os, diseaseSim::Disease& disease)
+void diseaseSim::Disease::printStats()
 {
-	os << "\n";
-	os << "Disease Name: " << disease.getName() << '\n' << "InfectionRate: ";
-	os  << disease.getInfectionRate() << "%\n" << "death Rate: " << disease.getDeathRate() <<'%';
-	os << "\nDisease incubation: " << disease.getIncubationTime() << "days\n\n";
-	return os;
+	std::cout << "\n";
+	std::cout << "Disease Name: " << name << '\n' << "InfectionRate: ";
+	std::cout  << infectionRate << "%\n" << "death Rate: " << deathRate <<'%';
+	std::cout << "\nDisease incubation: " << incubation << "days\n\n";
+
 }
 
 //for comma Delimited file

@@ -1,5 +1,7 @@
 #ifndef PERSON_H
 #define PERSON_H
+#include "diseaseSim.h"
+
 namespace diseaseSim
 {
 	class Person
