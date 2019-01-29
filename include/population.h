@@ -1,10 +1,8 @@
 #ifndef POPULATION_H
 #define POPULATION_H
+
 #include "person.h"
 #include "disease.h"
-#include <string>
-#include <time.h>
-#include <iostream>
 
 namespace diseaseSim
 {
@@ -20,9 +18,9 @@ namespace diseaseSim
 			int minInteractions;
 			int maxInteractions;
 			int size;
-			Person* head;
-			Person* tail;
-			Disease* disease;
+			Person *head;
+			Person *tail;
+			Disease disease;
 			void linkHeadTail();
 			void selectInfected(int numInfected);
 
@@ -49,7 +47,7 @@ namespace diseaseSim
 		void remove(Person &person);
 		void insertFirst(Person person);
 		void interact();
-		
+
 		Population(Population& population);
 		std::string getCdlData();
 		void printStats();

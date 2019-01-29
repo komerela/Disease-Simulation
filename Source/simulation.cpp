@@ -1,10 +1,15 @@
-#include "../Includes/simulation.h"
+#include "simulation.h"
 
+#include <iostream>
+#include <ctime>
 
-/*Handles simulation objects 
+namespace diseaseSim {
 
+/*
+	Handles simulation objects
 */
-diseaseSim::Simulation::Simulation(diseaseSim::Population& population, diseaseSim::Disease& disease, int maxDays)
+
+Simulation::Simulation(Population& population, Disease& disease, int maxDays)
 {
 	this->population = population;
 	this->disease = disease;
@@ -12,7 +17,7 @@ diseaseSim::Simulation::Simulation(diseaseSim::Population& population, diseaseSi
 	daysPassed = 1;
 }
 
-void diseaseSim::Simulation::simulateDisease(bool consoleOutput)
+void Simulation::simulateDisease(bool consoleOutput)
 {
 	disease.printStats();
 	population.printStats();
@@ -24,23 +29,25 @@ void diseaseSim::Simulation::simulateDisease(bool consoleOutput)
 	while (daysPassed <= maxDays && population.getNumInfected() > 0)
 	{
 		population.interact();
-		
+
 
 		if (consoleOutput)
 		{
-			std::cout << "day: " << daysPassed << '/' << maxDays << '\n';
+			std::cout << "day: " << daysPassed << '/' << maxDays << std::endl;
 			population.printStats();
 		}
-		data += population.getCdlData(); 
+		data += population.getCdlData();
 		daysPassed++;
-		
+
 	}
 	end = clock();
 	std::cout << "Execution time: " <<  (end - start) / (CLOCKS_PER_SEC)  << "Seconds" <<  std::endl;
 
 }
 
-std::string diseaseSim::Simulation::getCDLData()
+std::string Simulation::getCDLData()
 {
 	return data;
+}
+
 }

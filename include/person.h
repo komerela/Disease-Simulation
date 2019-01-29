@@ -1,6 +1,5 @@
 #ifndef PERSON_H
 #define PERSON_H
-#include "diseaseSim.h"
 
 namespace diseaseSim
 {
@@ -29,15 +28,15 @@ namespace diseaseSim
 			int getTimesInfected();
 			int getInteractions();
 			void setInteractions(int interactions);
-			Person& getNext();
-			Person& getPrev();
-	
+			Person &getNext();
+			Person &getPrev();
+
 	//Avoid user breaking structure
 	protected:
 			void setNext(Person *person);
 			void setPrev(Person *person);
 			friend class Population;
-			
+
 	};
 }
 

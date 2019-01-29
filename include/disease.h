@@ -1,13 +1,10 @@
 #ifndef DISEASE_H
 #define DISEASE_H
 
-#include "diseaseSim.h"
 #include <string>
-#include <fstream>
-#include <iostream>
+
 namespace diseaseSim
 {
-
 	class Disease
 	{
 		int deathRate;
@@ -28,7 +25,7 @@ namespace diseaseSim
 		void setIncubationTime(int incubation);
 		std::string getCdlData();
 		void printStats();
-		
+
 
 	};
 }
