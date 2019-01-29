@@ -3,10 +3,9 @@
 
 #include "population.h"
 #include "disease.h"
-#include <iostream>
+
 namespace diseaseSim
 {
-
 	class Simulation
 	{
 		private:
