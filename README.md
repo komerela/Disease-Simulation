@@ -5,12 +5,12 @@ Simulates diseases based on human interactions, disease infection rate, disease 
 * None Available
 
 ## License 
-* Do what you want commercial use, and private use are welcome
+* MIT
 
 ## Version 
 * Version 1.0
 
-## How-to use this code
+## Usage
 * Buld with makefile
 * Run disease simulation executable with three arguments
 * Args name<string> infectionRate<int> mortalityRate<int>
